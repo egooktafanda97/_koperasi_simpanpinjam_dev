@@ -27,6 +27,11 @@
     <link rel="stylesheet" href="<?= base_url("assets/css/") ?>costum_style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 
+    <!-- CSS Libraries -->
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css" />
+
     <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <style>
         #datatable-responsive_paginate {
@@ -80,11 +85,11 @@
 
         .pagination li:first-child a,
         .pagination li:last-child a {
-            border: 2px solid #143361 !important;
-            border-radius: 6px;
+            border: 0px solid #143361 !important;
+            border-radius: 0px;
             margin: 0px;
             padding: 6px 12px;
-            border: 2px solid;
+            border: 0px solid;
             font-size: 14px;
             color: #143361;
         }
@@ -224,6 +229,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js">
     </script>
     <?php !empty($script) ? $this->load->view('Page/' . $script) : ""; ?>
+
+
+<!-- ======================= -->
+<!-- ======================= -->
+
+    <!-- JS Libraies -->
+    <!-- dataTable -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
 
 </body>
 

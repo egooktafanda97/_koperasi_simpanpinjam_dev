@@ -62,6 +62,21 @@ body {
 
 /* em values are used to adjust button values such as padding, radius etc. based on font-size */
 
+table .collapse.in {
+	display: table-row;
+}
+
+th {
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	text-transform: uppercase;
+}
+
+th:first-child {
+	border-left: 1px solid #dddddd;
+}
+
 .table {
 	width: 100% !important;
 	margin: 0px !important;
@@ -72,8 +87,8 @@ body {
 .table tfoot th {
 	font-size: .8em !important;
 	font-family: 'Poppins', sans-serif;
-	background-color: #019267 !important;
-	color: #fff;
+	/* background-color: #019267 !important; */
+	/* color: #fff; */
 }
 
 .table tbody td {
@@ -88,6 +103,23 @@ body {
 	padding-left: 5px !important;
 	padding-right: 5px !important;
 }
+
+
+/* flex */
+.flex-space-between {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.paging-container {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: 10px;
+}
+
+
+/* ==================================== */
 
 .card {
 	box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
