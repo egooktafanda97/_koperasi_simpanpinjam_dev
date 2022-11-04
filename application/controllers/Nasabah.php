@@ -54,6 +54,7 @@ class Nasabah extends CI_Controller
             "title" => "Nasabah",
             "page" => $this->page . "index",
             "script" => $this->page . "script",
+            "sekolah" => $this->db->get_where("sekolah")->result_array(),
             "result" =>  $all_data,
         ];
         $this->load->view('Router/route', $data);
@@ -61,6 +62,7 @@ class Nasabah extends CI_Controller
 
     public function getAllData($limit, $start)
     {
+        $this->db->join("sekolah", "sekolah.id_sekolah = nasabah.id_sekolah");
         $this->db->order_by("id_nasabah", "DESC");
         $this->db->limit($limit, $start);
         $result = $this->db->get_where("nasabah")->result_array();
@@ -88,6 +90,7 @@ class Nasabah extends CI_Controller
             try {
                 $post = $this->input->post();
                 $data  = [
+                    "id_sekolah" => $post['id_sekolah'],
                     "nip" => $post['nip'],
                     "nik" => $post['nik'],
                     "nama" => $post['nama'],
@@ -125,6 +128,12 @@ class Nasabah extends CI_Controller
     {
 
         $getData = $this->db->get_where('nasabah', ['id_nasabah' => $id_nasabah])->row_array();
+        echo json_encode($getData);
+    }
+    public function getBySekolah($id_sekolah)
+    {
+
+        $getData = $this->db->get_where('nasabah', ['id_sekolah' => $id_sekolah])->result_array();
         echo json_encode($getData);
     }
 
@@ -181,7 +190,4 @@ class Nasabah extends CI_Controller
         );
         $this->load->view('Router/route', $data);
     }
-
-        
-     
 }

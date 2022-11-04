@@ -24,6 +24,7 @@
 <?php endif ?>
 <!-- Hapuss -->
 
+
 <script>
   $(document).ready(function() {
     $("#example").DataTable({
@@ -87,5 +88,4 @@
     }
     getdata(dataid)
   })
-
 </script>

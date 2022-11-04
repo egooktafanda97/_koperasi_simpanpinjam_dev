@@ -17,12 +17,11 @@
                         <table id="example" class="display nowrap cell-border" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 10px !important;">#</th>
+                                    <th>#</th>
                                     <th scope=" col">No</th>
                                     <th scope="col">Nip</th>
                                     <th scope="col">Nik</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Nama Sekolah</th>
                                     <th scope="col">Jabatan</th>
                                     <th scope="col">Saldo</th>
                                     <th scope="col">Alamat</th>
@@ -32,12 +31,11 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th style="width: 10px !important;">#</th>
+                                    <th>#</th>
                                     <th scope=" col">No</th>
                                     <th scope="col">Nip</th>
                                     <th scope="col">Nik</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Nama Sekolah</th>
                                     <th scope="col">Jabatan</th>
                                     <th scope="col">Saldo</th>
                                     <th scope="col">Alamat</th>
@@ -48,14 +46,13 @@
                             <tbody>
                                 <?php
                                 $no = $this->uri->segment(3) ? $this->uri->segment(3) + 1 : 1;
-                                foreach ($result as  $val) : ?>
+                                foreach ($result as $val) : ?>
                                     <tr>
                                         <td></td>
                                         <td><?= $no++ ?></td>
                                         <td><?= $val['nip'] ?? "" ?></td>
                                         <td><?= $val['nik'] ?? "" ?></td>
                                         <td><?= $val['nama'] ?? "" ?></td>
-                                        <td><?= $val['nama_sekolah'] ?? "" ?></td>
                                         <td><?= $val['jabatan'] ?? "" ?></td>
                                         <td><?= $val['saldo'] ?? "" ?></td>
                                         <td><?= $val['alamat'] ?? "" ?></td>
@@ -85,7 +82,7 @@
 <!-- [ sample-page ] end -->
 <div class="modal fade" id="m-crud" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
-        <form action="<?= base_url('nasabah/created'); ?>" method="post" id="formmodal">
+        <form action="<?= base_url('Simpan/created'); ?>" method="post" id="formmodal">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">Tambah Data</h5>
@@ -94,19 +91,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="">Sekolah</label>
-                                <select class="form-control form-control-sm" name="id_sekolah" id="id_sekolah">
-                                    <option value="">Pilih Sekolah</option>
-                                    <?php foreach ($sekolah as $v) : ?>
-                                        <option value="<?= $v['id_sekolah'] ?>"><?= $v['nama_sekolah'] ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row mb-1">
                         <div class="col md-6">
                             <div class="form-group">

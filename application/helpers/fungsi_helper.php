@@ -6,6 +6,16 @@ function rupiah($rupiah = null)
 	return $rp;
 }
 
+function convert_to_rupiah($angka)
+{
+	return 'Rp. ' . strrev(implode('.', str_split(strrev(strval($angka)), 3)));
+}
+
+function rupiah_to_number($rupiah)
+{
+	return intval(preg_replace('/,.*|[^0-9]/', '', $rupiah));
+}
+
 function random($length = 8)
 {
 	$data = 'ABCDEFGHIJKLMNOPQRSTU1234567890';
@@ -28,6 +38,10 @@ function random_num($length = 8)
 	return $string;
 }
 
+function dump($args)
+{
+	echo json_encode($args);
+}
 
 function array_map_assoc($callback, $array)
 {

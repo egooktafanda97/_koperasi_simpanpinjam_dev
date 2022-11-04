@@ -13,16 +13,15 @@
 
                 </div>
                 <div class="card-body">
-                    <div class="w-100">
+                    <!-- <div class="w-100">
                         <table id="example" class="display nowrap cell-border" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th style="width: 10px !important;">#</th>
+                                    <th>#</th>
                                     <th scope=" col">No</th>
                                     <th scope="col">Nip</th>
                                     <th scope="col">Nik</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Nama Sekolah</th>
                                     <th scope="col">Jabatan</th>
                                     <th scope="col">Saldo</th>
                                     <th scope="col">Alamat</th>
@@ -32,12 +31,11 @@
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th style="width: 10px !important;">#</th>
+                                    <th>#</th>
                                     <th scope=" col">No</th>
                                     <th scope="col">Nip</th>
                                     <th scope="col">Nik</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">Nama Sekolah</th>
                                     <th scope="col">Jabatan</th>
                                     <th scope="col">Saldo</th>
                                     <th scope="col">Alamat</th>
@@ -48,14 +46,13 @@
                             <tbody>
                                 <?php
                                 $no = $this->uri->segment(3) ? $this->uri->segment(3) + 1 : 1;
-                                foreach ($result as  $val) : ?>
+                                foreach ($result as $val) : ?>
                                     <tr>
                                         <td></td>
                                         <td><?= $no++ ?></td>
                                         <td><?= $val['nip'] ?? "" ?></td>
                                         <td><?= $val['nik'] ?? "" ?></td>
                                         <td><?= $val['nama'] ?? "" ?></td>
-                                        <td><?= $val['nama_sekolah'] ?? "" ?></td>
                                         <td><?= $val['jabatan'] ?? "" ?></td>
                                         <td><?= $val['saldo'] ?? "" ?></td>
                                         <td><?= $val['alamat'] ?? "" ?></td>
@@ -74,7 +71,7 @@
                     </div>
                     <div class="paging-container">
                         <?= $this->pagination->create_links(); ?>
-                    </div>
+                    </div> -->
 
                 </div>
             </div>
@@ -84,18 +81,18 @@
 
 <!-- [ sample-page ] end -->
 <div class="modal fade" id="m-crud" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-        <form action="<?= base_url('nasabah/created'); ?>" method="post" id="formmodal">
+    <div class="modal-dialog modal-lg">
+        <form action="<?= base_url('Pinjam/pembayaran'); ?>" method="post" id="formmodal" enctype="multipart/form-data">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Tambah Data</h5>
+                    <h5 class="modal-title" id="staticBackdropLabel">Pembayaran</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div class="row mb-1">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Sekolah</label>
                                 <select class="form-control form-control-sm" name="id_sekolah" id="id_sekolah">
@@ -106,54 +103,81 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mb-1">
-                        <div class="col md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Nip</label>
-                                <input type="text" class="form-control form-control-sm" name="nip" id="nip" placeholder="Nip">
+                                <label for="">Nasabah</label>
+                                <select class="form-control form-control-sm" name="id_nasabah" id="id_nasabah">
+                                    <option value="">Pilih Nasabah</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col md-6">
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Nik</label>
-                                <input type="text" class="form-control form-control-sm" name="nik" id="nik" placeholder="Nik">
+                                <label for="">Jumlah Pinjam</label>
+                                <input type="text" class="form-control form-control-sm" name="jumlah_pinjam" id="jumlah_pinjam" placeholder="Jumlah Peminjaman max 30jt">
                             </div>
                         </div>
-                    </div>
-                    <div class="row mb-1">
-                        <div class="col md-6">
+
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Nama</label>
-                                <input type="text" class="form-control form-control-sm" name="nama" id="nama" placeholder="Nama">
+                                <label for="">Lama Pinjam</label>
+                                <select class="form-control form-control-sm" name="lama_pinjam" id="lama_pinjam">
+                                    <option value="">Pilih Lama Pinjam</option>
+                                    <option value="10">10 Bulan</option>
+                                    <option value="12">12 Bulan</option>
+                                    <option value="18">18 Bulan</option>
+                                    <option value="24">24 Bulan</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="col md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Jabatan</label>
-                                <input type="text" class="form-control form-control-sm" name="jabatan" id="jabatan" placeholder="Jabatan">
+                                <label for="">Mulai Pembayaran Pinjaman</label>
+                                <input type="month" class="form-control form-control-sm" name="bulan_pembayaran" id="bulan_pembayaran" require>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mb-1">
-                        <div class="col md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Saldo</label>
-                                <input type="text" class="form-control form-control-sm" name="saldo" id="saldo" placeholder="Saldo">
+                                <label for="">Selesai Pembayaran Pinjaman</label>
+                                <input type="month" class="form-control form-control-sm" id="bulan_pembayaran_selesai">
                             </div>
                         </div>
-                        <div class="col md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Alamat</label>
-                                <input type="text" class="form-control form-control-sm" name="alamat" id="alamat" placeholder="Alamat">
+                                <label for="">Bunga (%)</label>
+                                <input type="text" class="form-control form-control-sm" name="bunga" id="bunga" readonly require>
                             </div>
                         </div>
-                    </div>
-                    <div class="row mb-1">
-                        <div class="col md-6">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">Tanggal Masuk</label>
-                                <input type="date" class="form-control form-control-sm" id="tanggal_masuk" name="tanggal_masuk" rows="3" placeholder="Tanggal Masuk">
+                                <label for="">Total Bunga (potong pinjaman)</label>
+                                <input type="text" class="form-control form-control-sm" name="jumlah_bunga" id="jumlah_bunga" readonly require>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Biaya Admin (1%)</label>
+                                <input type="text" class="form-control form-control-sm" name="admin" id="admin" readonly require>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Tagihan Bulanan</label>
+                                <input type="text" class="form-control form-control-sm" name="jumlah_tagihan_bulanan" id="jumlah_tagihan_bulanan" require>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Total</label>
+                                <input type="text" class="form-control form-control-sm" id="total" name="total" readonly require>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="">Surat Permohonan</label>
+                                <input type="file" class="form-control form-control-sm" id="surat_permohonan" name="surat_permohonan">
                             </div>
                         </div>
                     </div>
