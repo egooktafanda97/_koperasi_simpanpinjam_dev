@@ -13,19 +13,13 @@
 
                 </div>
                 <div class="card-body">
-                    <!-- <div class="w-100">
+                    <div class="w-100">
                         <table id="example" class="display nowrap cell-border" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>#</th>
                                     <th scope=" col">No</th>
-                                    <th scope="col">Nip</th>
-                                    <th scope="col">Nik</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Jabatan</th>
-                                    <th scope="col">Saldo</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Tanggal Masuk</th>
+
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -33,13 +27,7 @@
                                 <tr>
                                     <th>#</th>
                                     <th scope=" col">No</th>
-                                    <th scope="col">Nip</th>
-                                    <th scope="col">Nik</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Jabatan</th>
-                                    <th scope="col">Saldo</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Tanggal Masuk</th>
+
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </tfoot>
@@ -50,19 +38,13 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $val['nip'] ?? "" ?></td>
-                                        <td><?= $val['nik'] ?? "" ?></td>
-                                        <td><?= $val['nama'] ?? "" ?></td>
-                                        <td><?= $val['jabatan'] ?? "" ?></td>
-                                        <td><?= $val['saldo'] ?? "" ?></td>
-                                        <td><?= $val['alamat'] ?? "" ?></td>
-                                        <td><?= $val['tanggal_masuk'] ?? "" ?></td>
+
                                         <td>
                                             <a href="<?= base_url('nasabah/detail/') . $val['id_nasabah']; ?>" class="btn btn-success btn-sm"><i class="fa fa-list"></i></a>
-                                            <button type="button" data-id="<?= $val['id_nasabah']; ?>" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#m-crud">
+                                            <button type="button" data-id="<?= $val['id_pinjaman']; ?>" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#m-crud">
                                                 <i class="fa fa-edit"></i>
                                             </button>
-                                            <button class="btn btn-danger btn-sm delete" data-id="<?= $val['id_nasabah']; ?>"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-danger btn-sm delete" data-id="<?= $val['id_pinjaman']; ?>"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -71,8 +53,7 @@
                     </div>
                     <div class="paging-container">
                         <?= $this->pagination->create_links(); ?>
-                    </div> -->
-
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +96,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Jumlah Pinjam</label>
-                                <input type="text" class="form-control form-control-sm" name="jumlah_pinjam" id="jumlah_pinjam" placeholder="Jumlah Peminjaman max 30jt">
+                                <input type="text" class="form-control form-control-sm decimal" value="0" name="jumlah_pinjam" id="jumlah_pinjam" placeholder="Jumlah Peminjaman max 30jt">
                             </div>
                         </div>
 

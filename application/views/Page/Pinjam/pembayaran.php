@@ -1,19 +1,94 @@
 <section class="section">
     <div class="row">
-        <div class="col-sm-12">
-            <div class="card">
-
-                <div class="card-header">
-                    <div class="flex-space-between w-100">
-                        <h5>Tabel Nasabah</h5>
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#m-crud"><i class="fa fa-plus"></i> Tambah Data</button>
-                        <!-- <button class="btn btn-info trigger"><i class="fa fa-plus"></i> Tambah Data</button> -->
+        <div class="col-md-4">
+            <form action="<?= base_url('Pinjam/created'); ?>" method="post" id="formmodal" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="flex-space-between w-100">
+                            <h5>Buat Pembayaran</h5>
+                        </div>
                     </div>
+                    <div class="card-body">
 
-
+                        <div class="form-group">
+                            <label for="">Cari Nasabah</label>
+                            <select class="selectpicker form-control form-control-sm" data-live-search="true">
+                                <option data-tokens="" value="">Pilih Nasabah</option>
+                                <?php foreach ($pinjaman as $v) : ?>
+                                    <option data-tokens="<?= $v['nama'] ?>" value="<?= $v['id_pinjaman'] ?>"><?= $v['nama'] ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <!-- <div class="profile-card"></div> -->
+                    </div>
                 </div>
+            </form>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
                 <div class="card-body">
-                    <!-- <div class="w-100">
+                    <div class="card-header">
+                        <ul class="nav nav-tabs card-header-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="form-table-pembayaran" data-toggle="tab" href="#insta">Data Pembayaran</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="form-pembayaran" data-toggle="tab" href="#face">Form Pembayaran</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content card-body">
+                        <div id="insta" class="tab-pane form-table-pembayaran active">Table</div>
+                        <div id="face" class="tab-pane form-pembayaran">
+                            <div id="input-form" class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Tagihan Bulan</label>
+                                        <input type="month" class="form-control form-control-sm" require>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jumlah Tagihan (Rp.)</label>
+                                        <input type="text" name="jumlah_tagihan" class="form-control form-control-sm" require readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Jumlah Bayar (Rp.)</label>
+                                        <input type="text" name="jumlah_bayar" class="form-control form-control-sm" require>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Sisa Pinjam (Rp.)</label>
+                                        <input type="text" name="sisa_pinjam" class="form-control form-control-sm" require readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Total Sisa Pinjam (Rp.)</label>
+                                        <input type="text" name="total_sisa_pinjam" class="form-control form-control-sm" require readonly>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Tunggakan (hari)</label>
+                                        <input type="text" name="tunggakan" class="form-control form-control-sm" require value="0">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Denda (Rp.)</label>
+                                        <input type="text" name="denda" class="form-control form-control-sm" require value="0">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="w-100">
                         <table id="example" class="display nowrap cell-border" style="width:100%">
                             <thead>
                                 <tr>
@@ -73,121 +148,8 @@
                         <?= $this->pagination->create_links(); ?>
                     </div> -->
 
-                </div>
             </div>
         </div>
     </div>
-</section>
-
-<!-- [ sample-page ] end -->
-<div class="modal fade" id="m-crud" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <form action="<?= base_url('Pinjam/pembayaran'); ?>" method="post" id="formmodal" enctype="multipart/form-data">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Pembayaran</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row mb-1">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Sekolah</label>
-                                <select class="form-control form-control-sm" name="id_sekolah" id="id_sekolah">
-                                    <option value="">Pilih Sekolah</option>
-                                    <?php foreach ($sekolah as $v) : ?>
-                                        <option value="<?= $v['id_sekolah'] ?>"><?= $v['nama_sekolah'] ?></option>
-                                    <?php endforeach ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Nasabah</label>
-                                <select class="form-control form-control-sm" name="id_nasabah" id="id_nasabah">
-                                    <option value="">Pilih Nasabah</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Jumlah Pinjam</label>
-                                <input type="text" class="form-control form-control-sm" name="jumlah_pinjam" id="jumlah_pinjam" placeholder="Jumlah Peminjaman max 30jt">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Lama Pinjam</label>
-                                <select class="form-control form-control-sm" name="lama_pinjam" id="lama_pinjam">
-                                    <option value="">Pilih Lama Pinjam</option>
-                                    <option value="10">10 Bulan</option>
-                                    <option value="12">12 Bulan</option>
-                                    <option value="18">18 Bulan</option>
-                                    <option value="24">24 Bulan</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Mulai Pembayaran Pinjaman</label>
-                                <input type="month" class="form-control form-control-sm" name="bulan_pembayaran" id="bulan_pembayaran" require>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Selesai Pembayaran Pinjaman</label>
-                                <input type="month" class="form-control form-control-sm" id="bulan_pembayaran_selesai">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Bunga (%)</label>
-                                <input type="text" class="form-control form-control-sm" name="bunga" id="bunga" readonly require>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Total Bunga (potong pinjaman)</label>
-                                <input type="text" class="form-control form-control-sm" name="jumlah_bunga" id="jumlah_bunga" readonly require>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Biaya Admin (1%)</label>
-                                <input type="text" class="form-control form-control-sm" name="admin" id="admin" readonly require>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Tagihan Bulanan</label>
-                                <input type="text" class="form-control form-control-sm" name="jumlah_tagihan_bulanan" id="jumlah_tagihan_bulanan" require>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Total</label>
-                                <input type="text" class="form-control form-control-sm" id="total" name="total" readonly require>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="">Surat Permohonan</label>
-                                <input type="file" class="form-control form-control-sm" id="surat_permohonan" name="surat_permohonan">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                </div>
-            </div>
     </div>
-    </form>
-</div>
-</div>
+</section>
