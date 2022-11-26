@@ -5,7 +5,7 @@
 
                 <div class="card-header">
                     <div class="flex-space-between w-100">
-                        <h5>Tabel Nasabah</h5>
+                        <h5>Tabel PINJAMAN</h5>
                         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#m-crud"><i class="fa fa-plus"></i> Tambah Data</button>
                         <!-- <button class="btn btn-info trigger"><i class="fa fa-plus"></i> Tambah Data</button> -->
                     </div>
@@ -18,16 +18,44 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th scope=" col">No</th>
-
+                                    <th scope="col">No</th>
+                                    <th scope="col">SEKOLAH</th>
+                                    <th scope="col">NASABAH</th>
+                                    <th scope="col">JUMLAH PINJAM</th>
+                                    <th scope="col">BUNGA</th>
+                                    <th scope="col">JUMLAH BUNGA</th>
+                                    <th scope="col">ADMIN</th>
+                                    <th scope="col">JUMLAH TAGIHAN BULANAN</th>
+                                    <th scope="col">LAMA PINJAM</th>
+                                    <th scope="col">BULAN PEMBAYARAN</th>
+                                    <th scope="col">TOTAL</th>
+                                    <th scope="col">SISA PINJAM</th>
+                                    <th scope="col">SURAT PERMOHONAN</th>
+                                    <th scope="col">TANGGAL PINJAM</th>
+                                    <th scope="col">WAKTU PINJAM</th>
+                                    <th scope="col">STATUS PINJAMAN</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>#</th>
-                                    <th scope=" col">No</th>
-
+                                <th>#</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">SEKOLAH</th>
+                                    <th scope="col">NASABAH</th>
+                                    <th scope="col">JUMLAH PINJAM</th>
+                                    <th scope="col">BUNGA</th>
+                                    <th scope="col">JUMLAH BUNGA</th>
+                                    <th scope="col">ADMIN</th>
+                                    <th scope="col">JUMLAH TAGIHAN BULANAN</th>
+                                    <th scope="col">LAMA PINJAM</th>
+                                    <th scope="col">BULAN PEMBAYARAN</th>
+                                    <th scope="col">TOTAL</th>
+                                    <th scope="col">SISA PINJAM</th>
+                                    <th scope="col">SURAT PERMOHONAN</th>
+                                    <th scope="col">TANGGAL PINJAM</th>
+                                    <th scope="col">WAKTU PINJAM</th>
+                                    <th scope="col">STATUS PINJAMAN</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </tfoot>
@@ -38,7 +66,21 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $no++ ?></td>
-
+                                        <td><?= $val['nama_sekolah'] ?? "" ?></td>
+                                        <td><?= $val['nama'] ?? "" ?></td>
+                                        <td><?= $val['jumlah_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['bunga'] ?? "" ?></td>
+                                        <td><?= $val['jumlah_bunga'] ?? "" ?></td>
+                                        <td><?= $val['admin'] ?? "" ?></td>
+                                        <td><?= $val['jumlah_tagihan_bulanan'] ?? "" ?></td>
+                                        <td><?= $val['lama_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['bulan_pembayaran'] ?? "" ?></td>
+                                        <td><?= $val['total'] ?? "" ?></td>
+                                        <td><?= $val['sisa_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['surat_permohonan'] ?? "" ?></td>
+                                        <td><?= $val['tanggal_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['waktu_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['status_pinjaman'] ?? "" ?></td>
                                         <td>
                                             <a href="<?= base_url('nasabah/detail/') . $val['id_nasabah']; ?>" class="btn btn-success btn-sm"><i class="fa fa-list"></i></a>
                                             <button type="button" data-id="<?= $val['id_pinjaman']; ?>" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#m-crud">

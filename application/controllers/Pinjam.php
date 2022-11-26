@@ -118,7 +118,9 @@ class Pinjam extends CI_Controller
             "script" => $this->page . "script",
             "sekolah" => $this->db->get("sekolah")->result_array(),
             "result" => $this->getAllData(),
-            "pinjaman" => $this->nasabah_pinjaman()
+            "pinjaman" => $this->nasabah_pinjaman(),
+            "tagihan" => $this->tagihan_pinjaman()
+
         ];
         $this->load->view('Router/route', $data);
     }
@@ -131,4 +133,12 @@ class Pinjam extends CI_Controller
         $get = $this->db->get_where("pinjaman")->result_array();
         return $get;
     }
+    public function tagihan_pinjaman()
+    {
+        $this->db->order_by("id_tagihan", "DESC");
+        $this->db->join("nasabah", "nasabah.id_nasabah = tagihan_pinjaman.id_nasabah");
+        $result = $this->db->get_where("tagihan_pinjaman")->result_array();
+        return $result;
+    }
+
 }

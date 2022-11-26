@@ -38,7 +38,73 @@
                         </ul>
                     </div>
                     <div class="tab-content card-body">
-                        <div id="insta" class="tab-pane form-table-pembayaran active">Table</div>
+                        <div id="insta" class="tab-pane form-table-pembayaran active">
+                        <div class="w-100">
+                        <table id="example" class="display nowrap cell-border" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">NASABAH</th>
+                                    <th scope="col">KODE</th>
+                                    <th scope="col">BULAN</th>
+                                    <th scope="col">TAHUN</th>
+                                    <th scope="col">JUMLAH TAGIHAN</th>
+                                    <th scope="col">JUMLAH BAYAR</th>
+                                    <th scope="col">SISA PINJAM</th>
+                                    <th scope="col">TOTAL SISA PINJAM</th>
+                                    <th scope="col">TUNGGAKAN</th>
+                                    <th scope="col">DENDA</th>
+                                    <th scope="col">TANGGAL</th>
+                                    <th scope="col">WAKTU</th>
+                                    <th scope="col">STATUS</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                <th>#</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">NASABAH</th>
+                                    <th scope="col">KODE</th>
+                                    <th scope="col">BULAN</th>
+                                    <th scope="col">TAHUN</th>
+                                    <th scope="col">JUMLAH TAGIHAN</th>
+                                    <th scope="col">JUMLAH BAYAR</th>
+                                    <th scope="col">SISA PINJAM</th>
+                                    <th scope="col">TOTAL SISA PINJAM</th>
+                                    <th scope="col">TUNGGAKAN</th>
+                                    <th scope="col">DENDA</th>
+                                    <th scope="col">TANGGAL</th>
+                                    <th scope="col">WAKTU</th>
+                                    <th scope="col">STATUS</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <?php
+                                $no = $this->uri->segment(3) ? $this->uri->segment(3) + 1 : 1;
+                                foreach ($tagihan as $val) : ?>
+                                    <tr>
+                                        <td></td>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $val['nama'] ?? "" ?></td>
+                                        <td><?= $val['kode'] ?? "" ?></td>
+                                        <td><?= $val['bulan'] ?? "" ?></td>
+                                        <td><?= $val['tahun'] ?? "" ?></td>
+                                        <td><?= $val['jumlah_tagihan'] ?? "" ?></td>
+                                        <td><?= $val['jumlah_bayar'] ?? "" ?></td>
+                                        <td><?= $val['sisa_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['total_sisa_pinjam'] ?? "" ?></td>
+                                        <td><?= $val['tunggakan'] ?? "" ?></td>
+                                        <td><?= $val['denda'] ?? "" ?></td>
+                                        <td><?= $val['tanggal'] ?? "" ?></td>
+                                        <td><?= $val['jam'] ?? "" ?></td>
+                                        <td><?= $val['status'] ?? "" ?></td>  
+                                    </tr>
+                                <?php endforeach ?>
+                            </tbody>
+                        </table>
+                    </div>
+                        </div>
                         <div id="face" class="tab-pane form-pembayaran">
                             <div id="input-form" class="row">
                                 <div class="col-md-6">
