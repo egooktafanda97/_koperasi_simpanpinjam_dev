@@ -1,6 +1,6 @@
 <section class="section">
     <div class="mt-1 text-white mb-4">
-        <strong>Detail Data Nasabah</strong>
+        <strong>Detail Data Simpan</strong>
     </div>
     <div class="row">
         <!-- [ sample-page ] start -->
@@ -17,32 +17,32 @@
                             <table class="table table-bordered">
                                 <tbody>
                                     <tr>
-                                        <th>Nip</th>
-                                        <th><?= $val['nip'] ?? "" ?></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Nik</th>
-                                        <th><?= $val['nik'] ?? "" ?></th>
-                                    </tr>
-                                    <tr>
-                                        <th>Nama</th>
+                                        <th>Nasabah</th>
                                         <th><?= $val['nama'] ?? "" ?></th>
                                     </tr>
                                     <tr>
-                                        <th>Jabatan</th>
-                                        <th><?= $val['jabatan'] ?? "" ?></th>
+                                        <th>Saldo Awal</th>
+                                        <th><?= $val['saldo_awal'] ?? "" ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Jumlah Simpan</th>
+                                        <th><?= $val['jumlah_simpan'] ?? "" ?></th>
                                     </tr>
                                     <tr>
                                         <th>Saldo</th>
                                         <th><?= $val['saldo'] ?? "" ?></th>
                                     </tr>
                                     <tr>
-                                        <th>Alamatk</th>
-                                        <th><?= $val['alamat'] ?? "" ?></th>
+                                        <th>Biaya Admin</th>
+                                        <th><?= $val['biaya_admin'] ?? "" ?></th>
                                     </tr>
                                     <tr>
-                                        <th>Tanggal Masuk</th>
-                                        <th><?= $val['tanggal_masuk'] ?? "" ?></th>
+                                        <th>Tanggal</th>
+                                        <th><?= $val['tanggal'] ?? "" ?></th>
+                                    </tr>
+                                    <tr>
+                                        <th>Jam</th>
+                                        <th><?= $val['jam'] ?? "" ?></th>
                                     </tr>
                                 </tbody>
                             </table>

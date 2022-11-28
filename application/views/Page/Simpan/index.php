@@ -5,7 +5,7 @@
 
                 <div class="card-header">
                     <div class="flex-space-between w-100">
-                        <h5>Tabel Nasabah</h5>
+                        <h5>Tabel Simpan</h5>
                         <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#m-crud"><i class="fa fa-plus"></i> Tambah Data</button>
                         <!-- <button class="btn btn-info trigger"><i class="fa fa-plus"></i> Tambah Data</button> -->
                     </div>
@@ -19,13 +19,13 @@
                                 <tr>
                                     <th>#</th>
                                     <th scope=" col">No</th>
-                                    <th scope="col">Nip</th>
-                                    <th scope="col">Nik</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Nasabah</th>
+                                    <th scope="col">Saldo Awal</th>
+                                    <th scope="col">Jumlah Simpan</th>
                                     <th scope="col">Saldo</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Tanggal Masuk</th>
+                                    <th scope="col">Biaya Admin</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Jam</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
@@ -33,13 +33,13 @@
                                 <tr>
                                     <th>#</th>
                                     <th scope=" col">No</th>
-                                    <th scope="col">Nip</th>
-                                    <th scope="col">Nik</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Jabatan</th>
+                                    <th scope="col">Nasabah</th>
+                                    <th scope="col">Saldo Awal</th>
+                                    <th scope="col">Jumlah Simpan</th>
                                     <th scope="col">Saldo</th>
-                                    <th scope="col">Alamat</th>
-                                    <th scope="col">Tanggal Masuk</th>
+                                    <th scope="col">Biaya Admin</th>
+                                    <th scope="col">Tanggal</th>
+                                    <th scope="col">Jam</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </tfoot>
@@ -50,19 +50,19 @@
                                     <tr>
                                         <td></td>
                                         <td><?= $no++ ?></td>
-                                        <td><?= $val['nip'] ?? "" ?></td>
-                                        <td><?= $val['nik'] ?? "" ?></td>
                                         <td><?= $val['nama'] ?? "" ?></td>
-                                        <td><?= $val['jabatan'] ?? "" ?></td>
+                                        <td><?= $val['saldo_awal'] ?? "" ?></td>
+                                        <td><?= $val['jumlah_simpan'] ?? "" ?></td>
                                         <td><?= $val['saldo'] ?? "" ?></td>
-                                        <td><?= $val['alamat'] ?? "" ?></td>
-                                        <td><?= $val['tanggal_masuk'] ?? "" ?></td>
+                                        <td><?= $val['biaya_admin'] ?? "" ?></td>
+                                        <td><?= $val['tanggal'] ?? "" ?></td>
+                                        <td><?= $val['jam'] ?? "" ?></td>
                                         <td>
-                                            <a href="<?= base_url('nasabah/detail/') . $val['id_nasabah']; ?>" class="btn btn-success btn-sm"><i class="fa fa-list"></i></a>
-                                            <button type="button" data-id="<?= $val['id_nasabah']; ?>" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#m-crud">
+                                            <a href="<?= base_url('simpan/detail/') . $val['id_simpan']; ?>" class="btn btn-success btn-sm"><i class="fa fa-list"></i></a>
+                                            <button type="button" data-id="<?= $val['id_simpan']; ?>" class="btn btn-primary btn-sm edit" data-toggle="modal" data-target="#m-crud">
                                                 <i class="fa fa-edit"></i>
                                             </button>
-                                            <button class="btn btn-danger btn-sm delete" data-id="<?= $val['id_nasabah']; ?>"><i class="fa fa-trash"></i></button>
+                                            <button class="btn btn-danger btn-sm delete" data-id="<?= $val['id_simpan']; ?>"><i class="fa fa-trash"></i></button>
                                         </td>
                                     </tr>
                                 <?php endforeach ?>
@@ -94,50 +94,55 @@
                     <div class="row mb-1">
                         <div class="col md-6">
                             <div class="form-group">
-                                <label for="">Nip</label>
-                                <input type="text" class="form-control form-control-sm" name="nip" id="nip" placeholder="Nip">
+                            <label for="">Nasabah</label>
+                                <select class="form-control form-control-sm" id="id_nasabah" name="id_nasabah" require>
+                                    <option value="">pilih</option>
+                                    <?php foreach ($nasabah as $val) : ?>
+                                        <option value="<?= $val['id_nasabah'] ?>"><?= $val['nama'] ?></option>
+                                    <?php endforeach ?>
+                                </select>
                             </div>
                         </div>
                         <div class="col md-6">
                             <div class="form-group">
-                                <label for="">Nik</label>
-                                <input type="text" class="form-control form-control-sm" name="nik" id="nik" placeholder="Nik">
+                                <label for="">Saldo Awal</label>
+                                <input type="text" class="form-control form-control-sm" name="saldo_awal" id="saldo_awal" placeholder="Saldo Awal">
                             </div>
                         </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col md-6">
                             <div class="form-group">
-                                <label for="">Nama</label>
-                                <input type="text" class="form-control form-control-sm" name="nama" id="nama" placeholder="Nama">
+                                <label for="">Jumah Simpan</label>
+                                <input type="text" class="form-control form-control-sm" name="jumlah_simpan" id="jumlah_simpan" placeholder="Jumlah Simpan">
                             </div>
                         </div>
-                        <div class="col md-6">
-                            <div class="form-group">
-                                <label for="">Jabatan</label>
-                                <input type="text" class="form-control form-control-sm" name="jabatan" id="jabatan" placeholder="Jabatan">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row mb-1">
                         <div class="col md-6">
                             <div class="form-group">
                                 <label for="">Saldo</label>
                                 <input type="text" class="form-control form-control-sm" name="saldo" id="saldo" placeholder="Saldo">
                             </div>
                         </div>
+                    </div>
+                    <div class="row mb-1">
                         <div class="col md-6">
                             <div class="form-group">
-                                <label for="">Alamat</label>
-                                <input type="text" class="form-control form-control-sm" name="alamat" id="alamat" placeholder="Alamat">
+                                <label for="">Biaya Admin</label>
+                                <input type="text" class="form-control form-control-sm" id="biaya_admin" name="biaya_admin" placeholder="Biaya Admin">
                             </div>
                         </div>
                     </div>
                     <div class="row mb-1">
                         <div class="col md-6">
                             <div class="form-group">
-                                <label for="">Tanggal Masuk</label>
-                                <input type="date" class="form-control form-control-sm" id="tanggal_masuk" name="tanggal_masuk" rows="3" placeholder="Tanggal Masuk">
+                                <label for="">Tanggal</label>
+                                <input type="date" class="form-control form-control-sm" id="tanggal" name="tanggal" placeholder="Tanggal">
+                            </div>
+                        </div>
+                        <div class="col md-6">
+                            <div class="form-group">
+                                <label for="">Jam</label>
+                                <input type="time" class="form-control form-control-sm" name="jam" id="jam" placeholder="Jam">
                             </div>
                         </div>
                     </div>

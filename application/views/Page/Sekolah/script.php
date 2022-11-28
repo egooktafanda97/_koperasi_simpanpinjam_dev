@@ -78,9 +78,6 @@
         $("#jenjang").val(data?.jenjang ?? "");
         $("#alamat").val(data?.alamat ?? "");
         $("#formmodal").attr('action', '<?= base_url('sekolah/update/') ?>' + id)
-
-
-
       };
 
     }
