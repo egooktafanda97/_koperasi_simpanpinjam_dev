@@ -16,7 +16,7 @@ class Nasabah extends CI_Controller
         $this->load->library('pagination');
         // library pagination
         $config['total_rows'] = $this->countAllData();
-        $config['per_page'] = 1;
+        $config['per_page'] = 10;
         $config['base_url'] = base_url("Nasabah/index/");
         // stylingPage
         $config['full_tag_open'] = '<nav><ul class="pagination">';

@@ -16,7 +16,7 @@ class Simpan extends CI_Controller
         $this->load->library('pagination');
         // library pagination
         $config['total_rows'] = $this->countAllData();
-        $config['per_page'] = 1;
+        $config['per_page'] = 10;
         $config['base_url'] = base_url("Simpan/index/");
         // stylingPage
         $config['full_tag_open'] = '<nav><ul class="pagination">';
@@ -193,10 +193,8 @@ class Simpan extends CI_Controller
             'title' => "Detail Data",
             'page' => $this->page . "detail",
             'script' => $this->page . "script",
-            'val' => $this->dataSimpanById($id_simpan),        );
+            'val' => $this->dataSimpanById($id_simpan),
+        );
         $this->load->view('Router/route', $data);
     }
-
-        
-     
 }

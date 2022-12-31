@@ -193,6 +193,7 @@
                 console.log(res);
                 $("[name='jumlah_tagihan']").val(convertToRupiah(res?.jumlah_tagihan_bulanan));
                 $("[name='sisa_pinjam']").val(convertToRupiah(res?.sisa_pinjam));
+                $("[name='id_nasabah']").val(res?.id_nasabah);
             })
             // =====================================
         } else {

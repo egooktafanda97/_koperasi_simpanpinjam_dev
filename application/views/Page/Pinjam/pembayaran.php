@@ -9,7 +9,6 @@
                         </div>
                     </div>
                     <div class="card-body">
-
                         <div class="form-group">
                             <label for="">Cari Nasabah</label>
                             <select class="selectpicker form-control form-control-sm" data-live-search="true">
@@ -39,117 +38,124 @@
                     </div>
                     <div class="tab-content card-body">
                         <div id="insta" class="tab-pane form-table-pembayaran active">
-                        <div class="w-100">
-                        <table id="example" class="display nowrap cell-border" style="width:100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th scope="col">No</th>
-                                    <th scope="col">NASABAH</th>
-                                    <th scope="col">KODE</th>
-                                    <th scope="col">BULAN</th>
-                                    <th scope="col">TAHUN</th>
-                                    <th scope="col">JUMLAH TAGIHAN</th>
-                                    <th scope="col">JUMLAH BAYAR</th>
-                                    <th scope="col">SISA PINJAM</th>
-                                    <th scope="col">TOTAL SISA PINJAM</th>
-                                    <th scope="col">TUNGGAKAN</th>
-                                    <th scope="col">DENDA</th>
-                                    <th scope="col">TANGGAL</th>
-                                    <th scope="col">WAKTU</th>
-                                    <th scope="col">STATUS</th>
-                                </tr>
-                            </thead>
-                            <tfoot>
-                                <tr>
-                                <th>#</th>
-                                    <th scope="col">No</th>
-                                    <th scope="col">NASABAH</th>
-                                    <th scope="col">KODE</th>
-                                    <th scope="col">BULAN</th>
-                                    <th scope="col">TAHUN</th>
-                                    <th scope="col">JUMLAH TAGIHAN</th>
-                                    <th scope="col">JUMLAH BAYAR</th>
-                                    <th scope="col">SISA PINJAM</th>
-                                    <th scope="col">TOTAL SISA PINJAM</th>
-                                    <th scope="col">TUNGGAKAN</th>
-                                    <th scope="col">DENDA</th>
-                                    <th scope="col">TANGGAL</th>
-                                    <th scope="col">WAKTU</th>
-                                    <th scope="col">STATUS</th>
-                                </tr>
-                            </tfoot>
-                            <tbody>
-                                <?php
-                                $no = $this->uri->segment(3) ? $this->uri->segment(3) + 1 : 1;
-                                foreach ($tagihan as $val) : ?>
-                                    <tr>
-                                        <td></td>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $val['nama'] ?? "" ?></td>
-                                        <td><?= $val['kode'] ?? "" ?></td>
-                                        <td><?= $val['bulan'] ?? "" ?></td>
-                                        <td><?= $val['tahun'] ?? "" ?></td>
-                                        <td><?= $val['jumlah_tagihan'] ?? "" ?></td>
-                                        <td><?= $val['jumlah_bayar'] ?? "" ?></td>
-                                        <td><?= $val['sisa_pinjam'] ?? "" ?></td>
-                                        <td><?= $val['total_sisa_pinjam'] ?? "" ?></td>
-                                        <td><?= $val['tunggakan'] ?? "" ?></td>
-                                        <td><?= $val['denda'] ?? "" ?></td>
-                                        <td><?= $val['tanggal'] ?? "" ?></td>
-                                        <td><?= $val['jam'] ?? "" ?></td>
-                                        <td><?= $val['status'] ?? "" ?></td>  
-                                    </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
-                    </div>
+                            <div class="w-100">
+                                <table id="example" class="display nowrap cell-border" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">NASABAH</th>
+                                            <th scope="col">KODE</th>
+                                            <th scope="col">BULAN</th>
+                                            <th scope="col">TAHUN</th>
+                                            <th scope="col">JUMLAH TAGIHAN</th>
+                                            <th scope="col">JUMLAH BAYAR</th>
+                                            <th scope="col">SISA PINJAM</th>
+                                            <th scope="col">TOTAL SISA PINJAM</th>
+                                            <th scope="col">TUNGGAKAN</th>
+                                            <th scope="col">DENDA</th>
+                                            <th scope="col">TANGGAL</th>
+                                            <th scope="col">WAKTU</th>
+                                            <th scope="col">STATUS</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th scope="col">No</th>
+                                            <th scope="col">NASABAH</th>
+                                            <th scope="col">KODE</th>
+                                            <th scope="col">BULAN</th>
+                                            <th scope="col">TAHUN</th>
+                                            <th scope="col">JUMLAH TAGIHAN</th>
+                                            <th scope="col">JUMLAH BAYAR</th>
+                                            <th scope="col">SISA PINJAM</th>
+                                            <th scope="col">TOTAL SISA PINJAM</th>
+                                            <th scope="col">TUNGGAKAN</th>
+                                            <th scope="col">DENDA</th>
+                                            <th scope="col">TANGGAL</th>
+                                            <th scope="col">WAKTU</th>
+                                            <th scope="col">STATUS</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php
+                                        $no = $this->uri->segment(3) ? $this->uri->segment(3) + 1 : 1;
+                                        foreach ($tagihan as $val) : ?>
+                                            <tr>
+                                                <td></td>
+                                                <td><?= $no++ ?></td>
+                                                <td><?= $val['nama'] ?? "" ?></td>
+                                                <td><?= $val['kode'] ?? "" ?></td>
+                                                <td><?= $val['bulan'] ?? "" ?></td>
+                                                <td><?= $val['tahun'] ?? "" ?></td>
+                                                <td><?= $val['jumlah_tagihan'] ?? "" ?></td>
+                                                <td><?= $val['jumlah_bayar'] ?? "" ?></td>
+                                                <td><?= $val['sisa_pinjam'] ?? "" ?></td>
+                                                <td><?= $val['total_sisa_pinjam'] ?? "" ?></td>
+                                                <td><?= $val['tunggakan'] ?? "" ?></td>
+                                                <td><?= $val['denda'] ?? "" ?></td>
+                                                <td><?= $val['tanggal'] ?? "" ?></td>
+                                                <td><?= $val['jam'] ?? "" ?></td>
+                                                <td><?= $val['status'] ?? "" ?></td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div id="face" class="tab-pane form-pembayaran">
-                            <div id="input-form" class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Tagihan Bulan</label>
-                                        <input type="month" class="form-control form-control-sm" require>
+                            <form action="<?= base_url("Pinjam/create_pembayaran") ?>" method="post">
+                                <input type="hidden" name="id_nasabah" value="">
+                                <div id="input-form" class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Tagihan Bulan</label>
+                                            <input type="month" name="bulan" class="form-control form-control-sm" require>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Jumlah Tagihan (Rp.)</label>
+                                            <input type="text" name="jumlah_tagihan" class="form-control form-control-sm" require readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Jumlah Bayar (Rp.)</label>
+                                            <input type="text" name="jumlah_bayar" class="form-control form-control-sm" require>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Sisa Pinjam (Rp.)</label>
+                                            <input type="text" name="sisa_pinjam" class="form-control form-control-sm" require readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Total Sisa Pinjam (Rp.)</label>
+                                            <input type="text" name="total_sisa_pinjam" class="form-control form-control-sm" require readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Tunggakan (hari)</label>
+                                            <input type="text" name="tunggakan" class="form-control form-control-sm" require value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="">Denda (Rp.)</label>
+                                            <input type="text" name="denda" class="form-control form-control-sm" require value="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button class="btn btn-primary btn-sm">Bayar</button>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Jumlah Tagihan (Rp.)</label>
-                                        <input type="text" name="jumlah_tagihan" class="form-control form-control-sm" require readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Jumlah Bayar (Rp.)</label>
-                                        <input type="text" name="jumlah_bayar" class="form-control form-control-sm" require>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Sisa Pinjam (Rp.)</label>
-                                        <input type="text" name="sisa_pinjam" class="form-control form-control-sm" require readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Total Sisa Pinjam (Rp.)</label>
-                                        <input type="text" name="total_sisa_pinjam" class="form-control form-control-sm" require readonly>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Tunggakan (hari)</label>
-                                        <input type="text" name="tunggakan" class="form-control form-control-sm" require value="0">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="">Denda (Rp.)</label>
-                                        <input type="text" name="denda" class="form-control form-control-sm" require value="0">
-                                    </div>
-                                </div>
-                            </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>

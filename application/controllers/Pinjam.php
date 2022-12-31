@@ -140,5 +140,34 @@ class Pinjam extends CI_Controller
         $result = $this->db->get_where("tagihan_pinjaman")->result_array();
         return $result;
     }
+    public function create_pembayaran()
+    {
+        $post = $_POST;
+        $exp = explode("-", $post['bulan']);
+        $data = [
+            "id_nasabah" => $post['id_nasabah'],
+            "kode" => random("5"),
+            "bulan" => $post['bulan'],
+            "tahun" => $exp[0],
+            "jumlah_tagihan" => rupiah_to_number($post['jumlah_tagihan']),
+            "jumlah_bayar" => rupiah_to_number($post['jumlah_bayar']),
+            "sisa_pinjam" => rupiah_to_number($post['sisa_pinjam']),
+            "total_sisa_pinjam" => rupiah_to_number($post['total_sisa_pinjam']),
+            "tunggakan" => $post['tunggakan'],
+            "denda" => $post['denda'],
+            "tanggal" => date("Y-m-d"),
+            "jam" => date("H:s:i"),
+            "status" => "bayar"
+        ];
 
+        $save = $this->db->insert("tagihan_pinjaman", $data);
+        $this->db->update("pinjaman", ["sisa_pinjam" => rupiah_to_number($post['total_sisa_pinjam'])]);
+        if ($save) {
+            $this->session->set_flashdata('success', 'berhasil ditambahkan');
+            redirect('Pinjam/Pembayaran');
+        } else {
+            $this->session->set_flashdata('error', 'gagal di inputkan');
+            redirect('Pinjam/Pembayaran');
+        }
+    }
 }
