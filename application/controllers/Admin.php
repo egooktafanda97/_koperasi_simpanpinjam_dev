@@ -12,7 +12,17 @@ class Admin extends CI_Controller
             "title" => "Nasabah",
             "page" => "Home/index",
             "script" => "Home/script",
+            "counting" => $this->countung()
         ];
         $this->load->view('Router/route', $data);
+    }
+    public function countung()
+    {
+        $d = [
+            "sekolah" => $this->db->get_where("sekolah")->num_rows(),
+            "nasabah" => $this->db->get_where("nasabah")->num_rows(),
+            "peminjaman" => $this->db->get_where("pinjaman")->num_rows(),
+        ];
+        return $d;
     }
 }

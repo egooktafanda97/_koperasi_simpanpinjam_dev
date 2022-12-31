@@ -16,13 +16,10 @@
                     <label>Menu</label>
                 </li>
                 <li class="nav-item">
-                    <a href="<?= base_url("Home/index") ?>" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
+                    <a href="<?= base_url("Admin") ?>" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url("sekolah/index") ?>" class="nav-link "><span class="pcoded-micon"><i class="fa fa-school"></i></span><span class="pcoded-mtext">Sekolah</span></a>
-                </li>
-                <li class="nav-item">
-                    <a href="<?= base_url("setting/index") ?>" class="nav-link "><span class="pcoded-micon"><i class="fa fa-cog"></i></span><span class="pcoded-mtext">Setting</span></a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url("nasabah/index") ?>" class="nav-link "><span class="pcoded-micon"><i class="fa fa-user"></i></span><span class="pcoded-mtext">Nasabah</span></a>
@@ -37,7 +34,9 @@
                 <li class="nav-item">
                     <a href="<?= base_url("Pinjam/Pembayaran") ?>" class="nav-link "><span class="pcoded-micon"><i class="fa fa-money"></i></span><span class="pcoded-mtext">Pembayaran</span></a>
                 </li>
-
+                <li class="nav-item">
+                    <a href="<?= base_url("setting/index") ?>" class="nav-link "><span class="pcoded-micon"><i class="fa fa-cog"></i></span><span class="pcoded-mtext">Setting</span></a>
+                </li>
             </ul>
 
             <!-- <div class="card text-center">
